@@ -22,12 +22,35 @@ class Program
         } while (number != 0);
 
         int sum = 0;
+        int largest = numbers[0];
+        int smallestPositive = 1000000;
+
         foreach (int num in numbers)
         {
             sum += num;
+
+            if (num > largest)
+            {
+                largest = num;
+            }
+
+            if (num > 0 && num < smallestPositive)
+            {
+                smallestPositive = num;
+            }
         }
 
+        float avg = (float)sum / numbers.Count;
         Console.WriteLine($"The sum is: {sum}");
-    
+        Console.WriteLine($"The average is: {avg}");
+        Console.WriteLine($"The largest number is: {largest}");
+        Console.WriteLine($"The smallest positive number is: {smallestPositive}");
+
+        numbers.Sort();
+        Console.WriteLine("The sorted list is: ");
+        foreach (int num in numbers)
+        {
+            Console.WriteLine(num);
+        }
     }
 }
