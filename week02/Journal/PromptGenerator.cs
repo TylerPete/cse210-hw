@@ -5,7 +5,7 @@ public class PromptGenerator()
     public string GetRandomPrompt()
     {
         Random rand = new Random();
-        int index = rand.Next(0, 5);
+        int index = rand.Next(0, 7);
 
         return _prompts[index];
     }
