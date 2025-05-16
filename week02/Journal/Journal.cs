@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.IO;
 
 public class Journal()
@@ -47,5 +48,19 @@ public class Journal()
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
+    }
+
+    public string GetDaysElapsed()
+    {
+        //return string with amount of time elapsed between first and last entry
+        string firstDateString = _entries[0]._date;
+        string lastDateString = _entries[_entries.Count - 1]._date;
+
+        DateTime firstDate = DateTime.ParseExact(firstDateString, "MM/dd/yyyy", CultureInfo.CurrentCulture);
+        DateTime lastDate = DateTime.ParseExact(lastDateString, "MM/dd/yyyy", CultureInfo.CurrentCulture);
+
+        TimeSpan timespan = lastDate.Subtract(firstDate);
+        string daysElapsed = timespan.ToString("%d") + " days";
+        return daysElapsed;
     }
 }
