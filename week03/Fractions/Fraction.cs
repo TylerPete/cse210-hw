@@ -1,4 +1,4 @@
-public class Fraction()
+public class Fraction
 {
     private int _top;
     private int _bottom;
@@ -43,11 +43,11 @@ public class Fraction()
 
     public string GetFractionString()
     {
-        //code
+        return $"{_top}/{_bottom}";
     }
 
     public double GetDecimalValue()
     {
-        //code
+        return (double)_top / _bottom;
     }
 }
