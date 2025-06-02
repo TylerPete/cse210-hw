@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Video
 {
     private string _title;
@@ -5,15 +7,32 @@ public class Video
     private int _length;
     private List<Comment> _comments;
 
-    public string GetTitle()
+    public string GetDisplayText()
     {
-        return _title;
+        return $"{_title} by {_author}; Length: {_length} seconds";
     }
 
-    public string GetAuthor()
+    public int GetNumberOfComments()
     {
-        return _author;
+        return _comments.Count;
     }
 
-    
+    public string GetAllCommentsDisplayText()
+    {
+        string allComments = "";
+
+        foreach (Comment comment in _comments)
+        {
+            allComments += $"{comment.GetDisplayText()}\r\n";
+        }
+
+        return allComments;
+    }        
+    public Video(string title, string author, int length, List<Comment> comments)
+    {
+        _title = title;
+        _author = author;
+        _length = length;
+        _comments = comments;
+    }
 }
