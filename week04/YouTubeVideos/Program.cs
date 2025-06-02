@@ -41,7 +41,8 @@ class Program
 
         foreach (Video video in videoList)
         {
-            
+            Console.WriteLine(video.GetDisplayText());
+            Console.WriteLine(video.GetAllCommentsDisplayText());
         }
 
     }
