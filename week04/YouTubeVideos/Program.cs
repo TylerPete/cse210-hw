@@ -28,9 +28,9 @@ class Program
         Video vid2 = new Video("NyanCat! [Official]", "NyanCat", 216, commentList2);
         videoList.Add(vid2);
 
-        Comment c7 = new Comment("crabosity", "If this don’t play at my funeral, I ain’t coming");
-        Comment c8 = new Comment("rebeccasample1514", "I can't believe they didn't use this in the minecraft movie credits 😔");
-        Comment c9 = new Comment("-JaMaar", "Imagine getting your famous song beaten in views because of a Minecraft parady");
+        Comment c7 = new Comment("crabosity", "If this dont play at my funeral, I aint coming");
+        Comment c8 = new Comment("rebeccasample1514", "I cant believe they didnt use this in the minecraft movie credits 😔");
+        Comment c9 = new Comment("JaMaar", "Imagine getting your famous song beaten in views because of a Minecraft parady");
         List<Comment> commentList3 = new List<Comment>();
         commentList3.Add(c7);
         commentList3.Add(c8);
@@ -42,6 +42,7 @@ class Program
         foreach (Video video in videoList)
         {
             Console.WriteLine(video.GetDisplayText());
+            Console.WriteLine($"Number of comments: {video.GetNumberOfComments()}");
             Console.WriteLine(video.GetAllCommentsDisplayText());
         }
 
