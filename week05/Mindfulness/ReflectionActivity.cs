@@ -16,12 +16,12 @@ public class ReflectingActivity : Activity
 
     private string GetRandomPrompt()
     {
-        //code
+        return "Meow";
     }
 
     private string GetRandomQuestion()
     {
-        //code
+        return "Meow";
     }
 
     public void DisplayPrompt()

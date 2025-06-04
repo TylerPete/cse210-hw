@@ -26,7 +26,23 @@ public class Activity
 
     public void ShowSpinner(int seconds)
     {
-        //code
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(seconds);
+
+        DateTime currentTime = DateTime.Now;
+
+        List<string> loadingCharacters = new List<string> {"|", "/", "-", "\\"};
+        while (currentTime < futureTime)
+        {
+            foreach (string character in loadingCharacters)
+            {
+                Console.Write(character);
+                Thread.Sleep(300);
+
+                Console.Write("\b \b");
+            }
+            currentTime = DateTime.Now;
+        }
     }
 
     public void ShowCountDown(int seconds)

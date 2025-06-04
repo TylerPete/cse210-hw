@@ -16,12 +16,12 @@ public class ListingActivity : Activity
 
     private string GetRandomPrompt()
     {
-        //code
+        return "Meow";
     }
 
     public string GetRandomQuestion()
     {
-        //code
+        return "Meow";
     }
 
     public void DisplayPrompt()
@@ -31,6 +31,8 @@ public class ListingActivity : Activity
 
     public List<string> GetListFromUser()
     {
-        //code
+        //REPLACE LATER
+        List<string> list = new List<string>();
+        return list;
     }
 }
