@@ -19,9 +19,13 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
     }
 
+
+// Any more to do here? vvv
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Well done!!");
+
+        //...?
     }
 
     public void ShowSpinner(int seconds)
@@ -47,6 +51,11 @@ public class Activity
 
     public void ShowCountDown(int seconds)
     {
-        //code
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b\b\b   \b\b\b");
+        }
     }
 }
