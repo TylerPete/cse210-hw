@@ -32,11 +32,11 @@ public class ReflectingActivity : Activity
 
     public void DisplayPrompt()
     {
-        //code        Huh?
+        //code to call GetRandomPrompt(), and stuff
     }
 
     public void DisplayQuestions()
     {
-        //code
+        //code to call GetRandomQuestion(), and stuff
     }
 }
