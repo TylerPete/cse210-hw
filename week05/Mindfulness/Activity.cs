@@ -2,7 +2,7 @@ public class Activity
 {
     protected string _name;
     protected string _description;
-    private int _duration;
+    protected int _duration;
 
     public Activity(int duration)
     {
@@ -15,17 +15,21 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine(_description);
         Console.WriteLine();
-        Console.Write("How long, in seconds, would you like for your session? ");
+        Console.Write("How long, in seconds, would you like for your session?  ");
         _duration = int.Parse(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(5);
+        Console.WriteLine();
     }
 
-
-    // Any more to do here? vvv
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Well done!!");
-
-        //...?
+        ShowSpinner(5);
+        Console.WriteLine();
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
+        ShowSpinner(5);
     }
 
     public void ShowSpinner(int seconds)
@@ -55,7 +59,7 @@ public class Activity
         {
             Console.Write(i);
             Thread.Sleep(1000);
-            Console.Write("\b\b\b   \b\b\b");
+            Console.Write("\b \b");
         }
     }
 }

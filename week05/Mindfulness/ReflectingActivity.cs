@@ -32,7 +32,7 @@ public class ReflectingActivity : Activity
 
     public void DisplayPrompt()
     {
-        //code to call GetRandomPrompt(), and stuff
+        Console.WriteLine(GetRandomPrompt());
     }
 
     public void DisplayQuestions()

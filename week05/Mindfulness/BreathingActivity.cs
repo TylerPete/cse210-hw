@@ -8,6 +8,44 @@ public class BreathingActivity : Activity
 
     public void Run()
     {
-        //code
+        Console.Clear();
+        DisplayStartingMessage();
+
+        int numCycles = _duration / 10;
+        int remainder = _duration % 10;
+        int firstBreatheInTime;
+
+        if (remainder > 2)
+        {
+            firstBreatheInTime = remainder / 2;
+            Console.Write("Breathe in...");
+            ShowCountDown(firstBreatheInTime);
+            Console.WriteLine();
+            Console.Write("Now breathe out...");
+            ShowCountDown(remainder - firstBreatheInTime);
+            Console.WriteLine();
+            Console.WriteLine();
+            firstBreatheInTime = 0;
+        }
+        else { firstBreatheInTime = remainder; }
+
+        for (int i = 0; i < numCycles; i++)
+        {
+            Console.Write("Breathe in...");
+
+            if (i == 0)
+            {
+                ShowCountDown(4 + firstBreatheInTime);
+            }
+            else { ShowCountDown(4); }
+
+            Console.WriteLine();
+            Console.Write("Now breathe out...");
+            ShowCountDown(6);
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+        DisplayEndingMessage();
     }
 }
