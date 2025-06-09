@@ -12,7 +12,20 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-        //code
+        Console.Clear();
+        DisplayStartingMessage();
+
+        Console.WriteLine("List as many responses as you can to the following prompt:");
+        Console.WriteLine($" --- {GetRandomPrompt()} ---");
+        Console.WriteLine("You may begin in: ");
+        ShowCountDown(5);
+
+        List<string> responseList = GetListFromUser();
+        _count = responseList.Count;
+        Console.WriteLine($"You listed {_count} items!");
+        Console.WriteLine();
+
+        DisplayEndingMessage();
     }
 
     private string GetRandomPrompt()
@@ -24,8 +37,21 @@ public class ListingActivity : Activity
 
     public List<string> GetListFromUser()
     {
-        //REPLACE LATER
         List<string> list = new List<string>();
+
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+        DateTime currentTime = DateTime.Now;
+
+        while (currentTime < futureTime)
+        {
+            Console.Write(" > ");
+            string response = Console.ReadLine();
+            list.Add(response);
+
+            currentTime = DateTime.Now;
+        }
+
         return list;
     }
 }
