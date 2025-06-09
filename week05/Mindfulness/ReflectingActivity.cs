@@ -13,7 +13,15 @@ public class ReflectingActivity : Activity
 
     public void Run()
     {
-        //code
+        Console.Clear();
+        DisplayStartingMessage();
+
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine();
+        DisplayPrompt();
+        DisplayQuestions();
+
+        DisplayEndingMessage();
     }
 
     private string GetRandomPrompt()
@@ -32,11 +40,72 @@ public class ReflectingActivity : Activity
 
     public void DisplayPrompt()
     {
-        Console.WriteLine(GetRandomPrompt());
+        Console.WriteLine($" --- {GetRandomPrompt()} ---");
+        Console.WriteLine();
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
     }
 
     public void DisplayQuestions()
     {
-        //code to call GetRandomQuestion(), and stuff
+        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.");
+        Console.Write("You may begin in: ");
+        ShowCountDown(5);
+        Console.Clear();
+
+        List<int> numQuestionsAndQuestionDuration = CalculateNumQuestionsAndQuestionDuration();
+        int numQuestions = numQuestionsAndQuestionDuration[0];
+        int questionDuration = numQuestionsAndQuestionDuration[1];
+        int remainder = numQuestionsAndQuestionDuration[2];
+
+        for (int i = 0; i < numQuestions; i++)
+        {
+            if (i == numQuestions - 1)
+            {
+                questionDuration += remainder;
+            }
+
+            string question = GetRandomQuestion();
+            Console.Write($" > {question} ");
+            ShowSpinner(questionDuration);
+            Console.WriteLine();
+        }
+
+        Console.WriteLine();
+    }
+
+    private List<int> CalculateNumQuestionsAndQuestionDuration()
+    {
+        List<int> numQuestionsAndDurations = new List<int>();
+
+        int numQuestions = _duration / 15;
+        int remainder = _duration % 15;
+        int durationOfQuestion = 15;
+
+        if (numQuestions == 0)
+        {
+            numQuestions = 1;
+            durationOfQuestion = remainder;
+        }
+        else
+        {
+            if (remainder <= 5)
+            {
+                durationOfQuestion += remainder / numQuestions;
+                remainder = remainder % numQuestions;
+            }
+            else
+            {
+                numQuestions += 1;
+                durationOfQuestion = _duration / numQuestions;
+                remainder = _duration % numQuestions;
+            }
+        }
+
+        numQuestionsAndDurations.Add(numQuestions);
+        numQuestionsAndDurations.Add(durationOfQuestion);
+        numQuestionsAndDurations.Add(remainder);
+
+        return numQuestionsAndDurations;
     }
 }
