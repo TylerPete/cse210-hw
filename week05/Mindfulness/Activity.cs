@@ -20,7 +20,7 @@ public class Activity
     }
 
 
-// Any more to do here? vvv
+    // Any more to do here? vvv
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Well done!!");
@@ -35,7 +35,7 @@ public class Activity
 
         DateTime currentTime = DateTime.Now;
 
-        List<string> loadingCharacters = new List<string> {"|", "/", "-", "\\"};
+        List<string> loadingCharacters = new List<string> { "|", "/", "-", "\\" };
         while (currentTime < futureTime)
         {
             foreach (string character in loadingCharacters)
