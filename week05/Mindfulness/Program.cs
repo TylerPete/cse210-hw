@@ -44,11 +44,12 @@ class Program
             }
             else if (response == 3)
             {
-                //code
+                ListingActivity listingActivity = new ListingActivity(30);
+                listingActivity.Run();
             }
             else if (response == 4)
             {
-                //code
+                break;
             }
             else
             {
