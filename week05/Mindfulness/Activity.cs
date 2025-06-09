@@ -16,7 +16,32 @@ public class Activity
         Console.WriteLine(_description);
         Console.WriteLine();
         Console.Write("How long, in seconds, would you like for your session?  ");
-        _duration = int.Parse(Console.ReadLine());
+
+        _duration = 0;
+
+        while (_duration == 0)
+        {
+            try
+            {
+                _duration = int.Parse(Console.ReadLine());
+
+                if (_duration < 0)
+                {
+                    _duration = 0;
+                    Console.Write("Invalid entry. Please try again.");
+                    Thread.Sleep(1750);
+                    Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+                }
+            }
+            catch
+            {
+                _duration = 0;
+                Console.Write("Invalid entry. Please try again.");
+                Thread.Sleep(1750);
+                Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+            }
+        }
+
         Console.Clear();
         Console.WriteLine("Get ready...");
         ShowSpinner(5);

@@ -1,7 +1,9 @@
 // Purpose:
 // Author: Tyler Peterson
 // Exceeding requirements: Added a small amount of exception handling for invalid user input;
-//                          ADD ADDITIONAL INFO HERE
+//                          int.Parse() throwing an exception if the user enters a non-integer
+//                          value for the menu selection or activity duration will not crash
+//                          the program.
 
 using System;
 
@@ -25,11 +27,12 @@ class Program
             {
                 response = int.Parse(Console.ReadLine());
             }
-            catch (Exception)
+            catch
             {
                 response = 0;
                 Console.WriteLine("Sorry, your selection was not valid. Please try again.");
                 Thread.Sleep(2000);
+                continue;
             }
 
             if (response == 1)
