@@ -15,7 +15,7 @@ public abstract class Goal
 
     public abstract bool IsComplete();
 
-    protected string GetGoalName()
+    public string GetGoalName()
     {
         return _goalName;
     }
@@ -25,7 +25,7 @@ public abstract class Goal
         return _description;
     }
 
-    protected int GetPointValue()
+    public int GetPointValue()
     {
         return _pointValue;
     }
