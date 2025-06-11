@@ -15,9 +15,19 @@ public abstract class Goal
 
     public abstract bool IsComplete();
 
-    public string GetDetailsString()
+    public virtual string GetDetailsString()
     {
         //code for default behavior (will be adopted by SimpleGoal and EternalGoal)
+        string result = "";
+        if (IsComplete())
+        {
+            result += "[X]";
+        }
+        else
+        {
+            result += "[ ]";
+        }
+        return $"{result} {_goalName}: {_description}";
     }
 
     public abstract string GetStringRepresentation();
