@@ -15,6 +15,21 @@ public abstract class Goal
 
     public abstract bool IsComplete();
 
+    protected string GetGoalName()
+    {
+        return _goalName;
+    }
+
+    protected string GetGoalDescription()
+    {
+        return _description;
+    }
+
+    protected int GetPointValue()
+    {
+        return _pointValue;
+    }
+
     public virtual string GetDetailsString()
     {
         //code for default behavior (will be adopted by SimpleGoal and EternalGoal)

@@ -22,11 +22,20 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        //code
+        string result = "";
+        if (IsComplete())
+        {
+            result += "[X]";
+        }
+        else
+        {
+            result += "[ ]";
+        }
+        return $"{result} {GetGoalName()}: {GetGoalDescription()} -- Currently completed: {_amountCompleted}/{_target}";
     }
 
     public override string GetStringRepresentation()
     {
-        //code
+        return $"Checklist~{GetGoalName}~{GetGoalDescription}~{GetPointValue}~{_target}~{_bonusPoints}";
     }
 }

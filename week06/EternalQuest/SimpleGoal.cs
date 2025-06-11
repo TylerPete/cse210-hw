@@ -16,8 +16,9 @@ public class SimpleGoal : Goal
     {
         return _isComplete;
     }
+
     public override string GetStringRepresentation()
     {
-        //code
+        return $"Simple~{GetGoalName}~{GetGoalDescription}~{GetPointValue}~{IsComplete()}";
     }
 }
