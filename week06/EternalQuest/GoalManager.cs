@@ -47,14 +47,15 @@ public class GoalManager
             }
             else if (selection == "5")
             {
-                ListGoalNames();
-                Console.Write("Which goal did you accomplish? ");
-                int theSelection = int.Parse(Console.ReadLine());
+                // ListGoalNames();
+                // Console.Write("Which goal did you accomplish? ");
+                // int theSelection = int.Parse(Console.ReadLine());
 
-                _goals[theSelection - 1].RecordEvent();
+                // _goals[theSelection - 1].RecordEvent();
 
-                Console.WriteLine($"You now have {_score} points.");
-                Console.WriteLine();
+                // Console.WriteLine($"You now have {_score} points.");
+                // Console.WriteLine();
+                RecordEvent();  
             }
             else if (selection == "6")
             {
@@ -140,7 +141,7 @@ public class GoalManager
         Console.Write("Which goal did you accomplish? ");
         int selection = int.Parse(Console.ReadLine());
 
-        int newPoints = _goals[selection - 1].GetPointValue();
+        int newPoints = _goals[selection - 1].RecordEvent();
         _score += newPoints;
         Console.WriteLine($"Congratulations! You have earned {newPoints} points!");
         Console.WriteLine($"You now have {_score} points.");
@@ -183,12 +184,18 @@ public class GoalManager
                 {
                     case "Simple":
                         newGoal = new SimpleGoal(attributes[1], attributes[2], int.Parse(attributes[3]));
+                        if (bool.Parse(attributes[4])) { newGoal.RecordEvent(); }
                         break;
                     case "Eternal":
                         newGoal = new EternalGoal(attributes[1], attributes[2], int.Parse(attributes[3]));
                         break;
                     case "Checklist":
                         newGoal = new ChecklistGoal(attributes[1], attributes[2], int.Parse(attributes[3]), int.Parse(attributes[4]), int.Parse(attributes[5]));
+
+                        for (int i = 0; i < int.Parse(attributes[6]); i++)
+                        {
+                            newGoal.RecordEvent();
+                        }
                         break;
                 }
                 _goals.Add(newGoal);

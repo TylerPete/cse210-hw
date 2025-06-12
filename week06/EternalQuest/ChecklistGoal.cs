@@ -13,7 +13,7 @@ public class ChecklistGoal : Goal
     public override int RecordEvent()
     {
         _amountCompleted++;
-        bool bonusBool = _amountCompleted >= _target;
+        bool bonusBool = _amountCompleted == _target;
         int bonus = 0;
         if (bonusBool) { bonus = _bonusPoints; }
 
@@ -41,6 +41,6 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"Checklist~{GetGoalName()}~{GetGoalDescription()}~{GetPointValue()}~{_target}~{_bonusPoints}";
+        return $"Checklist~{GetGoalName()}~{GetGoalDescription()}~{GetPointValue()}~{_target}~{_bonusPoints}~{_amountCompleted}";
     }
 }
