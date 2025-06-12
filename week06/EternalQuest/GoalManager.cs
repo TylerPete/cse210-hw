@@ -153,6 +153,8 @@ public class GoalManager
 
         using (StreamWriter streamwriter = new StreamWriter(filename))
         {
+            streamwriter.WriteLine(_score);
+
             foreach (Goal goal in _goals)
             {
                 streamwriter.WriteLine(goal.GetStringRepresentation());
@@ -169,6 +171,7 @@ public class GoalManager
 
         using (StreamReader streamreader = new StreamReader(filename))
         {
+            _score = int.Parse(streamreader.ReadLine());
             string nextLine;
 
             while ((nextLine = streamreader.ReadLine()) != null)

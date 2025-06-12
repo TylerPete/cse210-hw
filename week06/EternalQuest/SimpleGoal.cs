@@ -20,6 +20,6 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"Simple~{GetGoalName}~{GetGoalDescription}~{GetPointValue}~{IsComplete()}";
+        return $"Simple~{GetGoalName()}~{GetGoalDescription()}~{GetPointValue()}~{IsComplete()}";
     }
 }
