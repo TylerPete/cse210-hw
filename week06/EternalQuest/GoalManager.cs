@@ -47,14 +47,6 @@ public class GoalManager
             }
             else if (selection == "5")
             {
-                // ListGoalNames();
-                // Console.Write("Which goal did you accomplish? ");
-                // int theSelection = int.Parse(Console.ReadLine());
-
-                // _goals[theSelection - 1].RecordEvent();
-
-                // Console.WriteLine($"You now have {_score} points.");
-                // Console.WriteLine();
                 RecordEvent();  
             }
             else if (selection == "6")
