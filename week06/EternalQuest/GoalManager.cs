@@ -148,31 +148,35 @@ public class GoalManager
 
     public void SaveGoals()
     {
-        Console.WriteLine("What is the filename for the goal file? ");
+        Console.Write("What is the filename for the goal file? ");
         string filename = Console.ReadLine();
 
         using (StreamWriter streamwriter = new StreamWriter(filename))
         {
             foreach (Goal goal in _goals)
             {
-                if (goal.GetType() == typeof(SimpleGoal))
-                {
-                    //code
-                }
-                else if (goal.GetType() == typeof(EternalGoal))
-                {
-                    //code
-                }
-                else if (goal.GetType() == typeof(ChecklistGoal))
-                {
-                    //code
-                }
+                streamwriter.WriteLine(goal.GetStringRepresentation());
             }
         }
     }
 
     public void LoadGoals()
     {
+        Console.Write("What is the filename for the goal file? ");
+        string filename = Console.ReadLine();
+
+        using (StreamReader streamreader = new StreamReader(filename))
+        {
+            string nextLine;
+
+            while ((nextLine = streamreader.ReadLine()) != null)
+            {
+                string[] attributes = nextLine.Split("~");
+                
+                
+            }
+        }
+
 
     }
 }
