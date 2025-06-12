@@ -11,7 +11,7 @@ public abstract class Goal
         _pointValue = pointValue;
     }
 
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
 
     public abstract bool IsComplete();
 

@@ -10,9 +10,14 @@ public class ChecklistGoal : Goal
         _bonusPoints = bonus;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        //code
+        _amountCompleted++;
+        bool bonusBool = _amountCompleted >= _target;
+        int bonus = 0;
+        if (bonusBool) { bonus = _bonusPoints; }
+
+        return GetPointValue() + bonus;
     }
 
     public override bool IsComplete()
