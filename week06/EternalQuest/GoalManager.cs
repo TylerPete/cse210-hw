@@ -39,11 +39,11 @@ public class GoalManager
             }
             else if (selection == "3")
             {
-                //code for calling SaveGoals()
+                SaveGoals();
             }
             else if (selection == "4")
             {
-                //code for calling LoadGoals()
+                LoadGoals();
             }
             else if (selection == "5")
             {
@@ -162,6 +162,8 @@ public class GoalManager
 
     public void LoadGoals()
     {
+        _goals.Clear();
+
         Console.Write("What is the filename for the goal file? ");
         string filename = Console.ReadLine();
 
@@ -172,8 +174,21 @@ public class GoalManager
             while ((nextLine = streamreader.ReadLine()) != null)
             {
                 string[] attributes = nextLine.Split("~");
-                
-                
+                Goal newGoal = null;
+
+                switch (attributes[0])
+                {
+                    case "Simple":
+                        newGoal = new SimpleGoal(attributes[1], attributes[2], int.Parse(attributes[3]));
+                        break;
+                    case "Eternal":
+                        newGoal = new EternalGoal(attributes[1], attributes[2], int.Parse(attributes[3]));
+                        break;
+                    case "Checklist":
+                        newGoal = new ChecklistGoal(attributes[1], attributes[2], int.Parse(attributes[3]), int.Parse(attributes[4]), int.Parse(attributes[5]));
+                        break;
+                }
+                _goals.Add(newGoal);
             }
         }
 
