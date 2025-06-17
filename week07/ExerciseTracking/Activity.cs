@@ -19,7 +19,7 @@ public abstract class Activity
 
     public string GetSummary()
     {
-        return $"{GetDateString} {ActivityTypeName()} ({GetLengthInMinutes()}) min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile";
+        return $"{GetDateString()} {ActivityTypeName()} ({GetLengthInMinutes()} min)- Distance {GetDistance().ToString("0.0")} miles, Speed {GetSpeed().ToString("0.0")} mph, Pace: {GetPace().ToString("0.0")} min per mile";
     }
 
     protected string GetDateString()
