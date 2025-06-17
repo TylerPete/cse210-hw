@@ -15,15 +15,20 @@ public abstract class Activity
 
     public abstract double GetPace();
 
-    public abstract string ActivityTypeName();
+    protected abstract string ActivityTypeName();
 
     public string GetSummary()
     {
-        return $"{GetDateString} {ActivityTypeName}";
+        return $"{GetDateString} {ActivityTypeName()} ({GetLengthInMinutes()}) min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
 
     protected string GetDateString()
     {
         return _date.ToString("d MMM yyyy");
+    }
+
+    protected double GetLengthInMinutes()
+    {
+        return _lengthInMinutes;
     }
 }

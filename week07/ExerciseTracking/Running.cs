@@ -11,6 +11,24 @@ public class Running : Activity
 
     public override double GetDistance()
     {
-        //implement here
+        return _distanceMiles;
+    }
+
+    public override double GetSpeed()
+    {
+        double hours = GetLengthInMinutes() / 60;
+
+        //miles    per   hour
+        return _distanceMiles / hours;
+    }
+
+    protected override string ActivityTypeName()
+    {
+        return "Running";
+    }
+
+    public override double GetPace()
+    {
+        return GetLengthInMinutes() / _distanceMiles;
     }
 }
