@@ -9,22 +9,22 @@ public class Swimming : Activity
 
     public override double GetPace()
     {
-        //stub
+        return (1 / GetSpeed()) * 60;
     }
 
     public override double GetSpeed()
     {
-        //stub
+        return (_numLaps * 0.0310686) / (GetLengthInMinutes() / 60);
     }
 
     public override double GetDistance()
     {
-        //stub
+        return _numLaps * 0.0310686;
     }
 
     protected override string ActivityTypeName()
     {
-        //stub
+        return "Swimming";
     }
 
 }
